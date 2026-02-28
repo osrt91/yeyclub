@@ -23,7 +23,7 @@ const embeds: { type: "instagram" | "youtube"; url: string }[] = [
 
 export function SocialSection() {
   return (
-    <section className="bg-background py-20">
+    <section className="bg-background py-14">
       <div className="yey-container">
         <h2 className="yey-heading mb-4 text-center text-3xl sm:text-4xl">
           Sosyal Medya

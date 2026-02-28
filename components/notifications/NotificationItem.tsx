@@ -37,7 +37,7 @@ export function NotificationItem({ notification, onMarkRead }: NotificationItemP
       className={cn(
         "flex w-full items-start gap-4 rounded-xl p-4 text-left transition-all duration-200",
         "hover:bg-foreground/5",
-        !notification.read && "bg-yey-yellow/5 border border-yey-yellow/10"
+        !notification.read && "bg-yey-yellow/5 border border-yey-yellow/20"
       )}
     >
       <div className={cn("mt-0.5 shrink-0 rounded-lg p-2.5", config.bg)}>

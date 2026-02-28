@@ -62,58 +62,55 @@ export default function IletisimPage() {
 
       {/* Content */}
       <section className="bg-background py-20">
-        <div className="yey-container grid gap-12 lg:grid-cols-5">
-          {/* Left - Contact Info */}
-          <div className="space-y-8 lg:col-span-2">
-            <div>
-              <h2 className="yey-heading mb-6 text-2xl">İletişim Bilgileri</h2>
-              <div className="space-y-5">
-                {contactInfo.map((info) => {
-                  const Icon = info.icon;
-                  const content = (
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 rounded-xl bg-yey-turquoise/10 p-3">
-                        <Icon className="h-5 w-5 text-yey-turquoise" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-foreground/50">
-                          {info.label}
-                        </p>
-                        <p className="font-medium text-foreground">
-                          {info.value}
-                        </p>
-                      </div>
+        <div className="yey-container grid gap-8 lg:grid-cols-2">
+          <div className="yey-card flex flex-col">
+            <h2 className="yey-heading mb-6 text-2xl">İletişim Bilgileri</h2>
+            <div className="space-y-4">
+              {contactInfo.map((info) => {
+                const Icon = info.icon;
+                const content = (
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 rounded-xl bg-yey-turquoise/10 p-3">
+                      <Icon className="h-5 w-5 text-yey-turquoise" />
                     </div>
-                  );
+                    <div>
+                      <p className="text-sm font-medium text-foreground/50">
+                        {info.label}
+                      </p>
+                      <p className="font-medium text-foreground">
+                        {info.value}
+                      </p>
+                    </div>
+                  </div>
+                );
 
-                  return info.href ? (
-                    <a
-                      key={info.label}
-                      href={info.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block rounded-xl p-3 transition-colors hover:bg-foreground/[0.03]"
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={info.label} className="rounded-xl p-3">
-                      {content}
-                    </div>
-                  );
-                })}
-              </div>
+                return info.href ? (
+                  <a
+                    key={info.label}
+                    href={info.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-xl p-3 transition-colors hover:bg-accent"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={info.label} className="rounded-xl p-3">
+                    {content}
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Social */}
-            <div className="yey-card">
-              <h3 className="yey-heading mb-4 text-lg">Sosyal Medya</h3>
-              <div className="flex gap-3">
-                <a
-                  href="https://instagram.com/yeyclub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg border border-foreground/10 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-yey-red/30 hover:bg-yey-red/5 hover:text-yey-red"
+            <div className="my-6 border-t border-border" />
+
+            <h3 className="yey-heading mb-4 text-lg">Sosyal Medya</h3>
+            <div className="flex gap-3">
+              <a
+                href="https://instagram.com/yeyclub"
+                target="_blank"
+                rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-yey-red/30 hover:bg-yey-red/5 hover:text-yey-red"
                 >
                   <Instagram className="h-4 w-4" />
                   Instagram
@@ -122,34 +119,29 @@ export default function IletisimPage() {
                   href="https://youtube.com/@yeyclub"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg border border-foreground/10 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-yey-red/30 hover:bg-yey-red/5 hover:text-yey-red"
-                >
-                  <Youtube className="h-4 w-4" />
-                  YouTube
-                </a>
-              </div>
+                  className="flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-yey-red/30 hover:bg-yey-red/5 hover:text-yey-red"
+              >
+                <Youtube className="h-4 w-4" />
+                YouTube
+              </a>
             </div>
 
-            {/* Working hours */}
-            <div className="yey-card">
-              <div className="flex items-center gap-3">
-                <div className="rounded-xl bg-yey-yellow/10 p-3">
-                  <Clock className="h-5 w-5 text-yey-yellow" />
-                </div>
-                <div>
-                  <h3 className="yey-heading text-lg">Çalışma Saatleri</h3>
-                  <p className="yey-text-muted mt-1 text-sm">
-                    7/24 WhatsApp üzerinden ulaşabilirsiniz
-                  </p>
-                </div>
+            <div className="my-6 border-t border-border" />
+
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-yey-yellow/10 p-3">
+                <Clock className="h-5 w-5 text-yey-yellow" />
+              </div>
+              <div>
+                <h3 className="yey-heading text-lg">Çalışma Saatleri</h3>
+                <p className="yey-text-muted mt-1 text-sm">
+                  7/24 WhatsApp üzerinden ulaşabilirsiniz
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right - Form */}
-          <div className="lg:col-span-3">
-            <ContactForm />
-          </div>
+          <ContactForm />
         </div>
       </section>
     </>

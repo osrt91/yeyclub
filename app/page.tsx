@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      <section className="py-20">
+      <section className="py-12">
         <div className="yey-container">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>

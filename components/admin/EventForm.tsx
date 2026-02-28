@@ -50,10 +50,10 @@ function slugify(text: string): string {
 }
 
 const categoryLabels: Record<string, string> = {
-  corba: "Çorba",
-  iftar: "İftar",
+  corba: "Yardım Organizasyonları",
+  iftar: "İftar & Ramazan",
   eglence: "Eğlence",
-  diger: "Diğer",
+  diger: "Sosyal Sorumluluk",
 };
 
 const statusLabels: Record<string, string> = {
@@ -64,7 +64,7 @@ const statusLabels: Record<string, string> = {
 };
 
 const inputClass =
-  "w-full rounded-lg border border-foreground/20 bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise";
+  "w-full rounded-lg border border-border bg-card px-4 py-2.5 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise";
 
 const labelClass = "mb-1.5 block text-sm font-medium text-foreground";
 
@@ -247,7 +247,7 @@ export function EventForm({ initialData, onSubmit, isLoading }: EventFormProps) 
         </div>
       </div>
 
-      <div className="flex items-center gap-3 border-t border-foreground/10 pt-6">
+      <div className="flex items-center gap-3 border-t border-border pt-6">
         <button
           type="submit"
           disabled={isLoading}

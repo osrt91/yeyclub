@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const inputClass =
-  "w-full rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20";
+  "w-full rounded-lg border border-border bg-card px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20";
 
 function SectionCard({
   icon: Icon,
@@ -159,7 +159,7 @@ export default function AdminAyarlarPage() {
               </label>
               <textarea
                 rows={3}
-                defaultValue="İstanbul'un en enerjik gönüllü topluluğu. Etkinlikler, çorba dağıtımı, iftar organizasyonları ve daha fazlası."
+                defaultValue="İstanbul'un en enerjik gönüllü topluluğu. Yardım organizasyonları, iftar buluşmaları, eğlence etkinlikleri ve daha fazlası."
                 className={`${inputClass} resize-none`}
               />
             </div>
@@ -184,7 +184,7 @@ export default function AdminAyarlarPage() {
           bg="bg-yey-yellow/10"
         >
           <div className="space-y-4">
-            <label className="flex items-center justify-between rounded-lg border border-foreground/10 p-4">
+            <label className="flex items-center justify-between rounded-lg border border-border p-4">
               <div>
                 <p className="font-medium text-foreground">
                   E-posta Bildirimleri
@@ -197,7 +197,7 @@ export default function AdminAyarlarPage() {
                 <div className="absolute right-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm" />
               </div>
             </label>
-            <label className="flex items-center justify-between rounded-lg border border-foreground/10 p-4">
+            <label className="flex items-center justify-between rounded-lg border border-border p-4">
               <div>
                 <p className="font-medium text-foreground">
                   WhatsApp Bildirimleri
@@ -210,7 +210,7 @@ export default function AdminAyarlarPage() {
                 <div className="absolute right-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm" />
               </div>
             </label>
-            <label className="flex items-center justify-between rounded-lg border border-foreground/10 p-4">
+            <label className="flex items-center justify-between rounded-lg border border-border p-4">
               <div>
                 <p className="font-medium text-foreground">
                   Push Bildirimleri

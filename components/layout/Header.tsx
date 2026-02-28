@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-foreground/10",
+        "sticky top-0 z-50 w-full border-b border-border",
         "bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60"
       )}
     >
@@ -132,7 +132,7 @@ export function Header() {
                     </Link>
                   )
                 })}
-                <div className="mt-6 flex flex-col gap-2 border-t border-foreground/10 pt-6">
+                <div className="mt-6 flex flex-col gap-2 border-t border-border pt-6">
                   <Link
                     href="/giris"
                     onClick={() => setMobileOpen(false)}

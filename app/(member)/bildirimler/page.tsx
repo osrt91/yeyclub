@@ -83,7 +83,7 @@ export default function BildirimlerPage() {
           {unreadCount > 0 && (
             <button
               onClick={handleMarkAllRead}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-foreground/10 px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-foreground/5 hover:text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-accent hover:text-foreground"
             >
               <CheckCheck className="h-4 w-4" />
               Tümünü Okundu İşaretle

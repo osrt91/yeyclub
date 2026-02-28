@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | YeyClub",
   },
   description:
-    "YeyClub - İstanbul'un en enerjik topluluk platformu. Çorba dağıtımı, iftar organizasyonları ve eğlence etkinlikleriyle topluluk ruhunu yaşa!",
+    "YeyClub - İstanbul'un en enerjik topluluk platformu. Yardım organizasyonları, iftar buluşmaları ve eğlence etkinlikleriyle topluluk ruhunu yaşa!",
   metadataBase: new URL("https://yeyclub.com"),
   openGraph: {
     type: "website",

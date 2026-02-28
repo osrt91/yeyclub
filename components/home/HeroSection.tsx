@@ -107,9 +107,9 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          İstanbul&apos;un en enerjik topluluğuna katıl. Çorba dağıtımından
-          iftar organizasyonlarına, eğlence etkinliklerinden sosyal sorumluluk
-          projelerine — birlikte daha güçlüyüz.
+          İstanbul&apos;un en enerjik topluluğuna katıl. Yardım
+          organizasyonlarından iftar buluşmalarına, eğlence etkinliklerinden
+          sosyal sorumluluk projelerine — birlikte daha güçlüyüz.
         </motion.p>
 
         <motion.div

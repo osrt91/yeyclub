@@ -50,9 +50,9 @@ export function ThemeToggle({ className }: { className?: string }) {
           transition={{ duration: 0.2 }}
         >
           {isDark ? (
-            <Moon className="h-5 w-5" />
+            <Moon className="h-5 w-5 text-foreground" />
           ) : (
-            <Sun className="h-5 w-5" />
+            <Sun className="h-5 w-5 text-foreground" />
           )}
         </motion.div>
       </AnimatePresence>

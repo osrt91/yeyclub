@@ -76,7 +76,7 @@ export function BlogPageContent({ posts }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-foreground/20 py-20 text-center"
+            className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border py-20 text-center"
           >
             <p className="yey-text-muted text-lg">Sonuç bulunamadı.</p>
             <p className="mt-1 text-sm text-foreground/50">

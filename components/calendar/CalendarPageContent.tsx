@@ -20,10 +20,10 @@ const DayEventsList = dynamic(
 );
 
 const CATEGORY_LEGEND = [
-  { color: "bg-yey-red", label: "Çorba" },
-  { color: "bg-yey-turquoise", label: "İftar" },
+  { color: "bg-yey-red", label: "Yardım" },
+  { color: "bg-yey-turquoise", label: "İftar & Ramazan" },
   { color: "bg-yey-yellow", label: "Eğlence" },
-  { color: "bg-yey-blue", label: "Diğer" },
+  { color: "bg-yey-blue", label: "Sosyal Sorumluluk" },
 ];
 
 type Props = {

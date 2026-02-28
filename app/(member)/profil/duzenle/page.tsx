@@ -154,7 +154,7 @@ export default function ProfilDuzenlePage() {
                   "focus:border-yey-turquoise focus:ring-2 focus:ring-yey-turquoise/20",
                   errors.full_name
                     ? "border-yey-red"
-                    : "border-foreground/10"
+                    : "border-border"
                 )}
               />
               {errors.full_name && (
@@ -176,7 +176,7 @@ export default function ProfilDuzenlePage() {
                 type="email"
                 value={displayEmail}
                 readOnly
-                className="w-full cursor-not-allowed rounded-lg border border-foreground/10 bg-foreground/5 px-4 py-2.5 text-foreground/50 outline-none"
+                className="w-full cursor-not-allowed rounded-lg border border-border bg-accent px-4 py-2.5 text-foreground/50 outline-none"
               />
             </div>
 
@@ -192,7 +192,7 @@ export default function ProfilDuzenlePage() {
                 type="tel"
                 placeholder="+90 5XX XXX XX XX"
                 {...register("phone")}
-                className="w-full rounded-lg border border-foreground/10 bg-background px-4 py-2.5 text-foreground outline-none transition-colors focus:border-yey-turquoise focus:ring-2 focus:ring-yey-turquoise/20"
+                className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-foreground outline-none transition-colors focus:border-yey-turquoise focus:ring-2 focus:ring-yey-turquoise/20"
               />
             </div>
           </div>

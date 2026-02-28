@@ -70,7 +70,7 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20";
+    "w-full rounded-lg border border-border bg-card px-4 py-3 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20";
   const errorClass = "mt-1 text-xs text-yey-red";
 
   return (

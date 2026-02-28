@@ -61,7 +61,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-foreground/10 bg-background/80 text-foreground/70 transition-all hover:border-yey-turquoise/30 hover:bg-yey-turquoise/10 hover:text-yey-turquoise"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground/70 transition-all hover:border-yey-turquoise/30 hover:bg-yey-turquoise/10 hover:text-yey-turquoise"
           aria-label={`${label} ile paylaş`}
         >
           <Icon className="h-4 w-4" />
@@ -70,7 +70,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
       <button
         type="button"
         onClick={handleCopy}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-foreground/10 bg-background/80 text-foreground/70 transition-all hover:border-yey-turquoise/30 hover:bg-yey-turquoise/10 hover:text-yey-turquoise"
+        className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground/70 transition-all hover:border-yey-turquoise/30 hover:bg-yey-turquoise/10 hover:text-yey-turquoise"
         aria-label="Bağlantıyı kopyala"
       >
         {copied ? (

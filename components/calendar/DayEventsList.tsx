@@ -63,8 +63,8 @@ export function DayEventsList({ events, date }: DayEventsListProps) {
                   <Link
                     href={`/etkinlikler/${event.slug}`}
                     className={cn(
-                      "block rounded-lg border border-foreground/5 bg-foreground/[0.03] p-4",
-                      "transition-all duration-200 hover:border-yey-turquoise/30 hover:bg-foreground/[0.06]"
+                      "block rounded-lg border border-border bg-accent p-4",
+                      "transition-all duration-200 hover:border-yey-turquoise/30 hover:bg-accent/80"
                     )}
                   >
                     <div className="mb-2 flex items-start justify-between gap-2">

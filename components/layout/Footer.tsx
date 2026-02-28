@@ -27,8 +27,8 @@ export function Footer() {
               <span className="text-yey-turquoise">CLUB</span>
             </Link>
             <p className="mb-6 text-sm leading-relaxed text-white/60">
-              İstanbul&apos;un en enerjik gönüllü topluluğu. Çorba dağıtımından
-              eğlence etkinliklerine, birlikte güzel işler yapıyoruz.
+              İstanbul&apos;un en enerjik gönüllü topluluğu. Yardım
+              organizasyonlarından eğlence etkinliklerine, birlikte güzel işler yapıyoruz.
             </p>
             <div className="flex gap-3">
               <a

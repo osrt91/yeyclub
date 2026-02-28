@@ -15,10 +15,10 @@ import { deleteEvent } from "@/lib/actions/events";
 import type { EventWithCount } from "@/types";
 
 const categoryLabels: Record<string, string> = {
-  corba: "Çorba",
-  iftar: "İftar",
+  corba: "Yardım",
+  iftar: "İftar & Ramazan",
   eglence: "Eğlence",
-  diger: "Diğer",
+  diger: "Sosyal Sorumluluk",
 };
 
 const statusConfig: Record<string, { label: string; className: string }> = {
@@ -90,7 +90,7 @@ export function AdminEventsContent({ initialEvents }: Props) {
         </button>
       </div>
 
-      <div className="flex flex-col gap-3 rounded-xl border border-foreground/10 bg-background/80 p-4 backdrop-blur-sm sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 backdrop-blur-sm sm:flex-row sm:items-center">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground/40" />
           <input
@@ -98,7 +98,7 @@ export function AdminEventsContent({ initialEvents }: Props) {
             placeholder="Etkinlik ara..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-foreground/20 bg-background py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
+            className="w-full rounded-lg border border-border bg-card py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
           />
         </div>
         <div className="flex gap-3">
@@ -107,7 +107,7 @@ export function AdminEventsContent({ initialEvents }: Props) {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="rounded-lg border border-foreground/20 bg-background py-2.5 pl-10 pr-8 text-sm text-foreground transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
+              className="rounded-lg border border-border bg-card py-2.5 pl-10 pr-8 text-sm text-foreground transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
             >
               <option value="all">Tüm Kategoriler</option>
               {Object.entries(categoryLabels).map(([value, label]) => (
@@ -122,7 +122,7 @@ export function AdminEventsContent({ initialEvents }: Props) {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="rounded-lg border border-foreground/20 bg-background py-2.5 pl-10 pr-8 text-sm text-foreground transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
+              className="rounded-lg border border-border bg-card py-2.5 pl-10 pr-8 text-sm text-foreground transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
             >
               <option value="all">Tüm Durumlar</option>
               {Object.entries(statusConfig).map(([value, { label }]) => (
@@ -135,11 +135,11 @@ export function AdminEventsContent({ initialEvents }: Props) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-foreground/10 bg-background/80 backdrop-blur-sm">
+      <div className="rounded-xl border border-border bg-card backdrop-blur-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-foreground/10 text-left">
+              <tr className="border-b border-border text-left">
                 <th className="px-6 py-3 font-medium text-foreground/60">
                   Kapak
                 </th>
@@ -163,7 +163,7 @@ export function AdminEventsContent({ initialEvents }: Props) {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-foreground/5">
+            <tbody className="divide-y divide-border">
               {filtered.length === 0 ? (
                 <tr>
                   <td

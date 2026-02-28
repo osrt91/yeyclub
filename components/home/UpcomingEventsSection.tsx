@@ -29,7 +29,7 @@ export async function UpcomingEventsSection() {
   if (events.length === 0) return null;
 
   return (
-    <section className="py-20">
+    <section className="py-14">
       <div className="yey-container">
         <div className="mb-12 text-center">
           <h2 className="yey-heading mb-4 text-3xl sm:text-4xl">

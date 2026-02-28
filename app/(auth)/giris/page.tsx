@@ -80,7 +80,7 @@ export default function GirisPage() {
                 placeholder="E-posta adresiniz"
                 autoComplete="email"
                 {...register("email")}
-                className="w-full rounded-lg border border-foreground/10 bg-background py-3 pl-10 pr-4 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
+                className="w-full rounded-lg border border-border bg-card py-3 pl-10 pr-4 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
               />
             </div>
             {errors.email && (
@@ -98,7 +98,7 @@ export default function GirisPage() {
                 placeholder="Şifreniz"
                 autoComplete="current-password"
                 {...register("password")}
-                className="w-full rounded-lg border border-foreground/10 bg-background py-3 pl-10 pr-12 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
+                className="w-full rounded-lg border border-border bg-card py-3 pl-10 pr-12 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
               />
               <button
                 type="button"
@@ -155,9 +155,9 @@ export default function GirisPage() {
         </form>
 
         <div className="my-6 flex items-center gap-4">
-          <div className="h-px flex-1 bg-foreground/10" />
+          <div className="h-px flex-1 bg-border" />
           <span className="text-sm yey-text-muted">veya</span>
-          <div className="h-px flex-1 bg-foreground/10" />
+          <div className="h-px flex-1 bg-border" />
         </div>
 
         <button

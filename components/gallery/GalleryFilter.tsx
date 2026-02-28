@@ -34,7 +34,7 @@ export function GalleryFilter({
             "shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
             selectedEvent === "all"
               ? "bg-yey-yellow text-yey-dark-bg shadow-md shadow-yey-yellow/20"
-              : "border border-foreground/10 text-foreground/70 hover:border-yey-yellow/30 hover:text-yey-yellow"
+              : "border border-border text-foreground/70 hover:border-yey-yellow/30 hover:text-yey-yellow"
           )}
         >
           Tüm Etkinlikler
@@ -48,7 +48,7 @@ export function GalleryFilter({
               "shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
               selectedEvent === event.id
                 ? "bg-yey-yellow text-yey-dark-bg shadow-md shadow-yey-yellow/20"
-                : "border border-foreground/10 text-foreground/70 hover:border-yey-yellow/30 hover:text-yey-yellow"
+                : "border border-border text-foreground/70 hover:border-yey-yellow/30 hover:text-yey-yellow"
             )}
           >
             {event.title}

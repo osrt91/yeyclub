@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 };
 
 const categoryLabels: Record<string, string> = {
-  corba: "Çorba",
-  iftar: "İftar",
+  corba: "Yardım",
+  iftar: "İftar & Ramazan",
   eglence: "Eğlence",
-  diger: "Diğer",
+  diger: "Sosyal Sorumluluk",
 };
 
 const statusConfig: Record<string, { label: string; className: string }> = {
@@ -99,14 +99,14 @@ export default async function AdminDashboardPage() {
         />
       </div>
 
-      <div className="rounded-xl border border-foreground/10 bg-background/80 backdrop-blur-sm">
-        <div className="border-b border-foreground/10 px-6 py-4">
+      <div className="rounded-xl border border-border bg-card backdrop-blur-sm">
+        <div className="border-b border-border px-6 py-4">
           <h2 className="yey-heading text-lg">Son Etkinlikler</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-foreground/10 text-left">
+              <tr className="border-b border-border text-left">
                 <th className="px-6 py-3 font-medium text-foreground/60">
                   Başlık
                 </th>
@@ -127,7 +127,7 @@ export default async function AdminDashboardPage() {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-foreground/5">
+            <tbody className="divide-y divide-border">
               {recentEvents.map((event) => {
                 const status = statusConfig[event.status];
                 return (

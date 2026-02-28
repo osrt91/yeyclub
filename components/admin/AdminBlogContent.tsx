@@ -278,7 +278,7 @@ export function AdminBlogContent({ initialPosts }: Props) {
                 placeholder="Ara..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-lg border border-foreground/20 bg-background py-2.5 pl-10 pr-4 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
+                className="w-full rounded-lg border border-border bg-card py-2.5 pl-10 pr-4 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise"
               />
             </motion.div>
 
@@ -289,7 +289,7 @@ export function AdminBlogContent({ initialPosts }: Props) {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="border-b border-foreground/10">
+                    <tr className="border-b border-border">
                       <th className="px-6 py-4 font-medium text-foreground/60">
                         Başlık
                       </th>
@@ -307,11 +307,11 @@ export function AdminBlogContent({ initialPosts }: Props) {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-foreground/5">
+                  <tbody className="divide-y divide-border">
                     {filteredPosts.map((post) => (
                       <tr
                         key={post.id}
-                        className="transition-colors hover:bg-foreground/[0.02]"
+                        className="transition-colors hover:bg-accent"
                       >
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">

@@ -166,7 +166,7 @@ export default async function EtkinlikDetayPage({ params }: Props) {
             </div>
 
             {event.description && (
-              <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
+              <div className="rounded-xl border border-border bg-card p-6 backdrop-blur-sm">
                 <h2 className="mb-3 text-lg font-semibold text-foreground">
                   Etkinlik Hakkında
                 </h2>
@@ -177,7 +177,7 @@ export default async function EtkinlikDetayPage({ params }: Props) {
             )}
 
             {event.location_name && (
-              <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
+              <div className="rounded-xl border border-border bg-card p-6 backdrop-blur-sm">
                 <h2 className="mb-3 text-lg font-semibold text-foreground">
                   Konum
                 </h2>
@@ -226,7 +226,7 @@ export default async function EtkinlikDetayPage({ params }: Props) {
                       <Link
                         key={related.id}
                         href={`/etkinlikler/${related.slug}`}
-                        className="group rounded-xl border border-foreground/10 bg-background/80 p-4 backdrop-blur-sm transition-all hover:border-yey-turquoise/30 hover:shadow-lg"
+                        className="group rounded-xl border border-border bg-card p-4 backdrop-blur-sm transition-all hover:border-yey-turquoise/30 hover:shadow-lg"
                       >
                         <span
                           className={cn(
@@ -251,7 +251,7 @@ export default async function EtkinlikDetayPage({ params }: Props) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
+            <div className="rounded-xl border border-border bg-card p-6 backdrop-blur-sm">
               <h2 className="mb-4 text-lg font-semibold text-foreground">
                 Katılım
               </h2>
@@ -262,7 +262,7 @@ export default async function EtkinlikDetayPage({ params }: Props) {
               />
             </div>
 
-            <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
+            <div className="rounded-xl border border-border bg-card p-6 backdrop-blur-sm">
               <h2 className="mb-4 text-lg font-semibold text-foreground">
                 Katılımcılar
               </h2>
@@ -276,7 +276,7 @@ export default async function EtkinlikDetayPage({ params }: Props) {
                   </div>
                 ))}
                 {rsvpCount > 5 && (
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-background bg-foreground/10 text-xs font-medium text-foreground/60">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-background bg-accent text-xs font-medium text-foreground/60">
                     +{rsvpCount - 5}
                   </div>
                 )}
@@ -288,14 +288,14 @@ export default async function EtkinlikDetayPage({ params }: Props) {
               </p>
             </div>
 
-            <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
+            <div className="rounded-xl border border-border bg-card p-6 backdrop-blur-sm">
               <h2 className="mb-4 text-lg font-semibold text-foreground">
                 Paylaş
               </h2>
               <div className="flex gap-2">
                 <button
                   type="button"
-                  className="flex-1 rounded-lg border border-foreground/10 px-4 py-2.5 text-sm font-medium text-foreground/70 transition-colors hover:bg-foreground/5"
+                  className="flex-1 rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-foreground/70 transition-colors hover:bg-accent"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Share2 className="h-4 w-4" />

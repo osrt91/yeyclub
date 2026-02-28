@@ -47,10 +47,10 @@ export const SOCIAL_LINKS = {
  * Event categories with Turkish labels and icons
  */
 export const EVENT_CATEGORIES = [
-  { id: "corba", label: "Çorba", icon: "🍲" },
-  { id: "iftar", label: "İftar", icon: "🌙" },
+  { id: "corba", label: "Yardım", icon: "❤️" },
+  { id: "iftar", label: "İftar & Ramazan", icon: "🌙" },
   { id: "eglence", label: "Eğlence", icon: "🎉" },
-  { id: "diger", label: "Diğer", icon: "📌" },
+  { id: "diger", label: "Sosyal Sorumluluk", icon: "🤝" },
 ] as const
 
 export type EventCategoryId = (typeof EVENT_CATEGORIES)[number]["id"]

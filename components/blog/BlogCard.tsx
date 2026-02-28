@@ -16,7 +16,7 @@ const GRADIENT_PLACEHOLDERS = [
 
 const CATEGORY_KEYWORDS: Record<string, string[]> = {
   Topluluk: ["topluluk", "hikaye", "organize", "birlikte"],
-  Etkinlik: ["etkinlik", "piknik", "iftar", "çorba", "dağıtım"],
+  Etkinlik: ["etkinlik", "piknik", "iftar", "yardım", "organizasyon"],
   Gönüllülük: ["gönüllü", "gönüllülük", "rehber"],
   Duyuru: ["duyuru", "yol", "harita", "program", "2026"],
 };
@@ -67,7 +67,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        "group block overflow-hidden rounded-xl border border-yey-turquoise/20 bg-background/80 shadow-lg backdrop-blur-sm transition-all duration-300",
+        "group block overflow-hidden rounded-xl border border-border bg-card shadow-lg backdrop-blur-sm transition-all duration-300",
         "hover:-translate-y-1 hover:shadow-xl hover:shadow-yey-turquoise/10 hover:border-yey-turquoise/40",
         featured && "md:flex md:flex-row"
       )}

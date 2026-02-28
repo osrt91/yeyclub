@@ -1,21 +1,22 @@
-import { Utensils, Moon, PartyPopper, Star } from "lucide-react";
+import { HeartHandshake, Moon, PartyPopper, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const categories = [
   {
     id: "corba",
-    title: "Çorba Dağıtımı",
+    title: "Yardım Organizasyonları",
     description:
-      "Soğuk kış gecelerinde sıcak bir çorba ile gönüllere dokunuyoruz.",
-    icon: Utensils,
+      "İhtiyaç sahiplerine gıda, kıyafet ve temel ihtiyaç desteği sağlıyoruz.",
+    icon: HeartHandshake,
     color: "text-yey-red",
     borderHover: "hover:border-yey-red/50",
     bgGlow: "group-hover:bg-yey-red/5",
   },
   {
     id: "iftar",
-    title: "İftar Organizasyonları",
-    description: "Ramazan ayında birlikte iftar sofraları kuruyoruz.",
+    title: "İftar & Ramazan",
+    description:
+      "Ramazan ayında iftar sofraları, sahur buluşmaları ve paylaşım etkinlikleri düzenliyoruz.",
     icon: Moon,
     color: "text-yey-yellow",
     borderHover: "hover:border-yey-yellow/50",
@@ -25,7 +26,7 @@ const categories = [
     id: "eglence",
     title: "Eğlence Etkinlikleri",
     description:
-      "Konserler, piknikler ve daha fazlası ile eğlenceli vakit geçiriyoruz.",
+      "Konserler, piknikler ve sosyal buluşmalarla keyifli vakit geçiriyoruz.",
     icon: PartyPopper,
     color: "text-yey-turquoise",
     borderHover: "hover:border-yey-turquoise/50",
@@ -33,10 +34,10 @@ const categories = [
   },
   {
     id: "diger",
-    title: "Diğer Etkinlikler",
+    title: "Sosyal Sorumluluk",
     description:
-      "Spor, kültür, sanat ve daha birçok alanda etkinlik düzenliyoruz.",
-    icon: Star,
+      "Spor, kültür ve gönüllülük projelerine katılarak topluma katkı sağlıyoruz.",
+    icon: Globe,
     color: "text-yey-blue",
     borderHover: "hover:border-yey-blue/50",
     bgGlow: "group-hover:bg-yey-blue/5",
@@ -45,7 +46,7 @@ const categories = [
 
 export function CategoriesSection() {
   return (
-    <section className="py-20">
+    <section className="py-14">
       <div className="yey-container">
         <div className="mb-12 text-center">
           <h2 className="yey-heading mb-4 text-3xl sm:text-4xl">

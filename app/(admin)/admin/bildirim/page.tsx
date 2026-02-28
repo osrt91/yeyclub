@@ -32,7 +32,7 @@ const recentNotifications = [
     bg: "bg-yey-yellow/10",
   },
   {
-    title: "Çorba Dağıtımı Hatırlatma",
+    title: "Yardım Organizasyonu Hatırlatma",
     type: "event",
     target: "Tüm Üyeler",
     date: "20 Şub 2026",
@@ -48,7 +48,7 @@ const typeIcons: Record<string, typeof Bell> = {
 };
 
 const inputClass =
-  "w-full rounded-lg border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20";
+  "w-full rounded-lg border border-border bg-card px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20";
 
 export default function AdminBildirimPage() {
   return (
@@ -134,7 +134,7 @@ export default function AdminBildirimPage() {
                 return (
                   <div
                     key={n.title}
-                    className="flex items-start gap-3 rounded-lg border border-foreground/5 p-3"
+                    className="flex items-start gap-3 rounded-lg border border-border p-3"
                   >
                     <div className={`flex-shrink-0 rounded-lg ${n.bg} p-2`}>
                       <Icon className={`h-4 w-4 ${n.color}`} />

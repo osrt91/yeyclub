@@ -38,7 +38,7 @@ export function StatsCard({ title, value, icon, color, trend }: StatsCardProps) 
   return (
     <div
       className={cn(
-        "rounded-xl border bg-background/80 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-lg",
+        "rounded-xl border bg-card p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-lg",
         colors.border
       )}
     >

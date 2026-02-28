@@ -8,19 +8,19 @@ export const metadata: Metadata = {
 
 const events = [
   "Tümü",
-  "Çorba Dağıtımı",
-  "İftar Organizasyonu",
+  "Yardım Organizasyonu",
+  "İftar & Ramazan",
   "Piknik",
-  "Gönüllü Buluşması",
+  "Sosyal Sorumluluk",
 ];
 
 const galleryItems = [
-  { id: 1, title: "Çorba Dağıtımı - Ocak 2025", event: "Çorba Dağıtımı" },
-  { id: 2, title: "İftar Buluşması 2025", event: "İftar Organizasyonu" },
+  { id: 1, title: "Gıda Yardımı - Ocak 2025", event: "Yardım Organizasyonu" },
+  { id: 2, title: "İftar Buluşması 2025", event: "İftar & Ramazan" },
   { id: 3, title: "Bahar Pikniği", event: "Piknik" },
-  { id: 4, title: "Gönüllü Oryantasyonu", event: "Gönüllü Buluşması" },
-  { id: 5, title: "Kış Yardımı 2024", event: "Çorba Dağıtımı" },
-  { id: 6, title: "Tanışma Etkinliği", event: "Gönüllü Buluşması" },
+  { id: 4, title: "Gönüllü Oryantasyonu", event: "Sosyal Sorumluluk" },
+  { id: 5, title: "Kış Yardımı 2024", event: "Yardım Organizasyonu" },
+  { id: 6, title: "Tanışma Etkinliği", event: "Sosyal Sorumluluk" },
 ];
 
 const gradients = [
@@ -89,7 +89,7 @@ export default function AdminGaleriPage() {
         {galleryItems.map((item, i) => (
           <div
             key={item.id}
-            className="group relative overflow-hidden rounded-xl border border-foreground/10"
+            className="group relative overflow-hidden rounded-xl border border-border"
           >
             <div
               className={`flex aspect-video items-center justify-center bg-gradient-to-br ${gradients[i % gradients.length]}`}

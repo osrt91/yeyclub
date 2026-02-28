@@ -62,7 +62,7 @@ export function RsvpButton({ eventId, maxParticipants, currentCount }: RsvpButto
       </div>
 
       {maxParticipants && (
-        <div className="h-2 overflow-hidden rounded-full bg-foreground/10">
+        <div className="h-2 overflow-hidden rounded-full bg-border">
           <div
             className="h-full rounded-full bg-gradient-to-r from-yey-turquoise to-yey-yellow transition-all duration-500"
             style={{ width: `${Math.min((count / maxParticipants) * 100, 100)}%` }}
@@ -80,7 +80,7 @@ export function RsvpButton({ eventId, maxParticipants, currentCount }: RsvpButto
             "disabled:cursor-not-allowed disabled:opacity-50",
             status === "attending"
               ? "bg-yey-yellow text-yey-dark-bg shadow-md shadow-yey-yellow/20"
-              : "border border-foreground/10 text-foreground/70 hover:border-yey-yellow/30 hover:text-yey-yellow"
+              : "border border-border text-foreground/70 hover:border-yey-yellow/30 hover:text-yey-yellow"
           )}
         >
           <span className="flex items-center justify-center gap-2">
@@ -96,7 +96,7 @@ export function RsvpButton({ eventId, maxParticipants, currentCount }: RsvpButto
             "rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200",
             status === "maybe"
               ? "bg-yey-turquoise text-white shadow-md"
-              : "border border-foreground/10 text-foreground/70 hover:border-yey-turquoise/30 hover:text-yey-turquoise"
+              : "border border-border text-foreground/70 hover:border-yey-turquoise/30 hover:text-yey-turquoise"
           )}
         >
           <span className="flex items-center justify-center gap-2">
@@ -112,7 +112,7 @@ export function RsvpButton({ eventId, maxParticipants, currentCount }: RsvpButto
             "rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200",
             status === "declined"
               ? "bg-yey-red/80 text-white shadow-md"
-              : "border border-foreground/10 text-foreground/70 hover:border-yey-red/30 hover:text-yey-red"
+              : "border border-border text-foreground/70 hover:border-yey-red/30 hover:text-yey-red"
           )}
         >
           <span className="flex items-center justify-center gap-2">

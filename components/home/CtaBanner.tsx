@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 export function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-yey-turquoise to-yey-turquoise/80 py-20">
+    <section className="relative overflow-hidden bg-gradient-to-r from-yey-turquoise to-yey-turquoise/80 py-14">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.1)_0%,transparent_50%)]" />
 
       <div className="yey-container relative z-10 text-center">

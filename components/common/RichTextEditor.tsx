@@ -55,7 +55,7 @@ function ToolbarButton({
 }
 
 function ToolbarDivider() {
-  return <div className="mx-1 h-6 w-px bg-foreground/15" />;
+  return <div className="mx-1 h-6 w-px bg-border" />;
 }
 
 export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
@@ -117,8 +117,8 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
   if (!editor) return null;
 
   return (
-    <div className="overflow-hidden rounded-lg border border-foreground/20 bg-background transition-colors focus-within:border-yey-turquoise focus-within:ring-1 focus-within:ring-yey-turquoise">
-      <div className="flex flex-wrap items-center gap-0.5 border-b border-foreground/15 bg-foreground/[0.03] px-2 py-1.5">
+    <div className="overflow-hidden rounded-lg border border-border bg-card transition-colors focus-within:border-yey-turquoise focus-within:ring-1 focus-within:ring-yey-turquoise">
+      <div className="flex flex-wrap items-center gap-0.5 border-b border-border bg-accent px-2 py-1.5">
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleBold().run()}
           isActive={editor.isActive("bold")}

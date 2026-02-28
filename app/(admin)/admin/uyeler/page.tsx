@@ -81,7 +81,7 @@ export default async function AdminUyelerPage() {
         <input
           type="text"
           placeholder="Üye ara... (ad, e-posta)"
-          className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] py-3 pl-12 pr-4 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20"
+          className="w-full rounded-xl border border-border bg-card py-3 pl-12 pr-4 text-foreground placeholder:text-foreground/40 focus:border-yey-turquoise focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20"
         />
       </div>
 
@@ -89,7 +89,7 @@ export default async function AdminUyelerPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
             <thead>
-              <tr className="border-b border-foreground/10">
+              <tr className="border-b border-border">
                 <th className="px-6 py-4 font-medium text-foreground/60">
                   Üye
                 </th>
@@ -104,11 +104,11 @@ export default async function AdminUyelerPage() {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-foreground/5">
+            <tbody className="divide-y divide-border">
               {profiles.map((member, i) => (
                 <tr
                   key={member.id}
-                  className="transition-colors hover:bg-foreground/[0.02]"
+                  className="transition-colors hover:bg-accent"
                 >
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">

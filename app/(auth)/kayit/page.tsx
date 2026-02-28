@@ -77,7 +77,7 @@ export default function KayitPage() {
   const busy = isSubmitting || isLoading;
 
   const inputClass =
-    "w-full rounded-lg border border-foreground/10 bg-background py-3 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise";
+    "w-full rounded-lg border border-border bg-card py-3 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise";
 
   return (
     <motion.div
@@ -197,7 +197,7 @@ export default function KayitPage() {
               <input
                 type="checkbox"
                 {...register("kvkk")}
-                className="mt-1 h-4 w-4 rounded border-foreground/20 accent-yey-turquoise"
+                className="mt-1 h-4 w-4 rounded border-border accent-yey-turquoise"
               />
               <span className="text-sm yey-text-muted">
                 <span className="cursor-pointer text-yey-turquoise hover:underline">
@@ -248,9 +248,9 @@ export default function KayitPage() {
         </form>
 
         <div className="my-6 flex items-center gap-4">
-          <div className="h-px flex-1 bg-foreground/10" />
+          <div className="h-px flex-1 bg-border" />
           <span className="text-sm yey-text-muted">veya</span>
-          <div className="h-px flex-1 bg-foreground/10" />
+          <div className="h-px flex-1 bg-border" />
         </div>
 
         <button

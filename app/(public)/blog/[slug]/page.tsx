@@ -126,13 +126,13 @@ export default async function BlogDetayPage({ params }: Props) {
           <div className="mb-12">
             <AuthorCard
               name={authorName}
-              bio="YeyClub topluluğunu temsil eden ekip. Çorba dağıtımlarından iftar organizasyonlarına, pikniklerden gönüllü buluşmalarına kadar her etkinlikte birlikte."
+              bio="YeyClub topluluğunu temsil eden ekip. Yardım organizasyonlarından iftar buluşmalarına, pikniklerden gönüllü projelerine kadar her etkinlikte birlikte."
             />
           </div>
         </article>
 
         {relatedPosts.length > 0 && (
-          <section className="mt-16 border-t border-foreground/10 pt-12">
+          <section className="mt-16 border-t border-border pt-12">
             <h2 className="yey-heading mb-6 text-2xl">İlgili Yazılar</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((related) => (

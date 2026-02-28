@@ -48,7 +48,7 @@ export function EventCard({ event, rsvpCount = 0 }: EventCardProps) {
     <Link href={`/etkinlikler/${event.slug}`} className="group block">
       <article
         className={cn(
-          "overflow-hidden rounded-xl border border-foreground/10 bg-background/80 backdrop-blur-sm",
+          "overflow-hidden rounded-xl border border-border bg-card backdrop-blur-sm",
           "transition-all duration-300",
           "hover:scale-[1.02] hover:shadow-xl hover:shadow-yey-turquoise/10 hover:border-yey-turquoise/30"
         )}

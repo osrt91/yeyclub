@@ -96,7 +96,7 @@ export function ImageUpload({
   return (
     <div className="space-y-2">
       {preview ? (
-        <div className="group relative inline-block overflow-hidden rounded-xl border border-foreground/10">
+        <div className="group relative inline-block overflow-hidden rounded-xl border border-border">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={preview}
@@ -137,7 +137,7 @@ export function ImageUpload({
             "flex min-h-[160px] cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed transition-colors",
             isDragging
               ? "border-yey-turquoise bg-yey-turquoise/5"
-              : "border-foreground/20 hover:border-foreground/40"
+              : "border-border hover:border-foreground/40"
           )}
         >
           {isUploading ? (

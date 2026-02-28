@@ -20,16 +20,16 @@ const CATEGORY_BADGES: Record<
   Event["category"],
   { label: string; className: string }
 > = {
-  corba: { label: "🍲 Çorba", className: "bg-yey-red/15 text-yey-red" },
+  corba: { label: "❤️ Yardım", className: "bg-yey-red/15 text-yey-red" },
   iftar: {
-    label: "🌙 İftar",
+    label: "🌙 İftar & Ramazan",
     className: "bg-yey-turquoise/15 text-yey-turquoise",
   },
   eglence: {
     label: "🎉 Eğlence",
     className: "bg-yey-yellow/15 text-yey-yellow",
   },
-  diger: { label: "📌 Diğer", className: "bg-yey-blue/15 text-yey-blue" },
+  diger: { label: "🤝 Sosyal Sorumluluk", className: "bg-yey-blue/15 text-yey-blue" },
 };
 
 const STATS = [
@@ -102,7 +102,7 @@ export default function ProfilPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * (i + 1) }}
                 className={cn(
-                  "rounded-xl border bg-background/80 p-5 backdrop-blur-sm",
+                  "rounded-xl border bg-card p-5 backdrop-blur-sm",
                   colors.border
                 )}
               >
@@ -135,7 +135,7 @@ export default function ProfilPage() {
             Katıldığı Etkinlikler
           </h3>
 
-          <div className="divide-y divide-foreground/5">
+            <div className="divide-y divide-border">
             {displayEvents.map((event) => {
               const badge = CATEGORY_BADGES[event.category];
               const date = new Date(event.event_date).toLocaleDateString(

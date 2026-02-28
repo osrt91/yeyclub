@@ -28,7 +28,7 @@ export function BlogSearch({
           value={searchQuery}
           onChange={(e) => onSearch(e.target.value)}
           className={cn(
-            "w-full rounded-xl border border-foreground/10 bg-background/80 py-3 pl-12 pr-10",
+            "w-full rounded-xl border border-border bg-card py-3 pl-12 pr-10",
             "text-foreground placeholder:text-foreground/40",
             "backdrop-blur-sm transition-all duration-200",
             "focus:border-yey-turquoise/50 focus:outline-none focus:ring-2 focus:ring-yey-turquoise/20"
@@ -55,7 +55,7 @@ export function BlogSearch({
               "rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
               selectedCategory === cat
                 ? "bg-yey-turquoise text-white shadow-md shadow-yey-turquoise/20"
-                : "border border-foreground/10 text-foreground/70 hover:border-yey-turquoise/30 hover:text-yey-turquoise"
+                : "border border-border text-foreground/70 hover:border-yey-turquoise/30 hover:text-yey-turquoise"
             )}
           >
             {cat}

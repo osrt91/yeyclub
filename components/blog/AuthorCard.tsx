@@ -19,7 +19,7 @@ function getInitials(name: string): string {
 
 export function AuthorCard({ name, bio, avatarUrl }: AuthorCardProps) {
   return (
-    <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
+    <div className="rounded-xl border border-border bg-card p-6 backdrop-blur-sm">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
         {avatarUrl ? (
           <Image

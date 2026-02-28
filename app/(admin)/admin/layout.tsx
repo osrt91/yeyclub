@@ -43,7 +43,7 @@ export default function AdminLayout({
 
   const sidebarContent = (
     <div className="flex h-full flex-col">
-      <div className="flex items-center gap-3 border-b border-foreground/10 px-6 py-5">
+      <div className="flex items-center gap-3 border-b border-border px-6 py-5">
         <Shield className="h-6 w-6 text-yey-yellow" />
         <span className="text-lg font-bold text-foreground">Admin Panel</span>
       </div>
@@ -71,7 +71,7 @@ export default function AdminLayout({
         })}
       </nav>
 
-      <div className="border-t border-foreground/10 px-3 py-4">
+      <div className="border-t border-border px-3 py-4">
         <Link
           href="/"
           className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/70 transition-colors hover:bg-foreground/5 hover:text-foreground"
@@ -96,7 +96,7 @@ export default function AdminLayout({
       {/* Sidebar - mobile */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-64 transform border-r border-foreground/10 bg-background transition-transform duration-200 lg:hidden",
+          "fixed inset-y-0 left-0 z-50 w-64 transform border-r border-border bg-card transition-transform duration-200 lg:hidden",
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -112,13 +112,13 @@ export default function AdminLayout({
       </aside>
 
       {/* Sidebar - desktop */}
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-foreground/10 bg-background lg:block">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-border bg-card lg:block">
         {sidebarContent}
       </aside>
 
       {/* Main content */}
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-16 items-center gap-4 border-b border-foreground/10 bg-background/80 px-4 backdrop-blur-xl lg:px-8">
+        <header className="sticky top-0 z-20 flex h-16 items-center gap-4 border-b border-border bg-background/80 px-4 backdrop-blur-xl lg:px-8">
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}

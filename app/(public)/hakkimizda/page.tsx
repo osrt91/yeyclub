@@ -29,7 +29,7 @@ const timeline = [
   },
   {
     year: "2024",
-    text: "İlk çorba dağıtımı (15 gönüllü)",
+    text: "İlk yardım organizasyonu (15 gönüllü)",
     color: "bg-yey-turquoise",
   },
   {
@@ -153,7 +153,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Hikayemiz - Timeline */}
-      <section className="bg-foreground/[0.03] py-20">
+      <section className="bg-accent py-20">
         <div className="yey-container">
           <h2 className="yey-heading mb-4 text-center text-3xl sm:text-4xl">
             Hikayemiz
@@ -239,7 +239,7 @@ export default function HakkimizdaPage() {
               return (
                 <div
                   key={v.title}
-                  className={`group rounded-xl border ${v.border} bg-background/80 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
+                  className={`group rounded-xl border ${v.border} bg-card p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
                 >
                   <div
                     className={`mx-auto mb-4 inline-flex rounded-2xl ${v.bg} p-4 transition-transform duration-300 group-hover:scale-110`}
@@ -258,7 +258,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Ekibimiz */}
-      <section className="bg-foreground/[0.03] py-20">
+      <section className="bg-accent py-20">
         <div className="yey-container">
           <h2 className="yey-heading mb-4 text-center text-3xl sm:text-4xl">
             Ekibimiz
