@@ -8,7 +8,7 @@ import {
   Eye,
   Pencil,
 } from "lucide-react";
-import { StatsCard } from "@/components/admin";
+import { StatsCard } from "@/components/admin/StatsCard";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAdminStats, getEventsWithCounts } from "@/lib/queries/events";

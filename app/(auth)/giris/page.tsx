@@ -9,6 +9,7 @@ import { z } from "zod/v4";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
+import { loginAction } from "@/lib/actions/auth";
 import { Mail, Lock, Eye, EyeOff, LogIn, Chrome } from "lucide-react";
 
 const loginSchema = z.object({
@@ -20,7 +21,7 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 export default function GirisPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn, signInWithGoogle, isLoading } = useAuth();
+  const { signInWithGoogle, isLoading } = useAuth();
   const router = useRouter();
 
   const {
@@ -33,11 +34,12 @@ export default function GirisPage() {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    const { error } = await signIn(data.email, data.password);
-    if (error) {
-      toast.error("Giriş başarısız", { description: error.message });
+    const result = await loginAction(data.email, data.password);
+    if (!result.success) {
+      toast.error("Giriş başarısız", { description: result.error });
     } else {
       toast.success("Giriş başarılı!");
+      router.refresh();
       router.push("/");
     }
   };

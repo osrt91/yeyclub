@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BlogCard, BlogSearch } from "@/components/blog";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { BlogSearch } from "@/components/blog/BlogSearch";
 import type { BlogPost } from "@/types";
 
 const containerVariants = {

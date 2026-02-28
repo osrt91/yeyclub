@@ -8,6 +8,7 @@ import {
   Zap,
   ArrowRight,
 } from "lucide-react";
+import { SocialSection } from "@/components/home/SocialSection";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | YeyClub",
@@ -284,6 +285,8 @@ export default function HakkimizdaPage() {
           </div>
         </div>
       </section>
+
+      <SocialSection />
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-gradient-to-r from-yey-dark-bg to-yey-dark-bg py-20">

@@ -11,7 +11,7 @@ import {
   CalendarClock,
 } from "lucide-react";
 import { useAuth } from "@/hooks";
-import { ProfileCard } from "@/components/profile";
+import { ProfileCard } from "@/components/profile/ProfileCard";
 import { cn } from "@/lib/utils";
 import { MOCK_PROFILES, MOCK_EVENTS } from "@/lib/data/mock-data";
 import type { Event } from "@/types";

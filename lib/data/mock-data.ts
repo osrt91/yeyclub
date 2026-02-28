@@ -1,5 +1,12 @@
 import type { Event, Profile, Notification, GalleryItem } from "@/types";
 
+const EVENT_COVER_IMAGES: Record<Event["category"], string> = {
+  corba: "/images/event-corba.svg",
+  iftar: "/images/event-iftar.svg",
+  eglence: "/images/event-eglence.svg",
+  diger: "/images/event-default.svg",
+};
+
 export const MOCK_PROFILES: Profile[] = [
   {
     id: "u1",
@@ -65,7 +72,7 @@ export const MOCK_EVENTS: Event[] = [
     location_name: "Kadıköy Meydanı",
     location_lat: 40.9908,
     location_lng: 29.0259,
-    cover_image: null,
+    cover_image: EVENT_COVER_IMAGES.corba,
     max_participants: 30,
     status: "upcoming",
     created_by: "u1",
@@ -83,7 +90,7 @@ export const MOCK_EVENTS: Event[] = [
     location_name: "Beşiktaş Sahil Parkı",
     location_lat: 41.0422,
     location_lng: 29.0041,
-    cover_image: null,
+    cover_image: EVENT_COVER_IMAGES.iftar,
     max_participants: 50,
     status: "upcoming",
     created_by: "u1",
@@ -101,7 +108,7 @@ export const MOCK_EVENTS: Event[] = [
     location_name: "Caddebostan Sahili",
     location_lat: 40.9643,
     location_lng: 29.0606,
-    cover_image: null,
+    cover_image: EVENT_COVER_IMAGES.eglence,
     max_participants: 40,
     status: "upcoming",
     created_by: "u1",
@@ -119,7 +126,7 @@ export const MOCK_EVENTS: Event[] = [
     location_name: "Üsküdar Meydanı",
     location_lat: 41.0262,
     location_lng: 29.0155,
-    cover_image: null,
+    cover_image: EVENT_COVER_IMAGES.corba,
     max_participants: 25,
     status: "upcoming",
     created_by: "u1",
@@ -137,7 +144,7 @@ export const MOCK_EVENTS: Event[] = [
     location_name: "Kadıköy Sahil",
     location_lat: 40.9886,
     location_lng: 29.0232,
-    cover_image: null,
+    cover_image: EVENT_COVER_IMAGES.iftar,
     max_participants: 60,
     status: "upcoming",
     created_by: "u1",
@@ -155,7 +162,7 @@ export const MOCK_EVENTS: Event[] = [
     location_name: "YeyClub Ofis",
     location_lat: 41.0082,
     location_lng: 28.9784,
-    cover_image: null,
+    cover_image: EVENT_COVER_IMAGES.diger,
     max_participants: 20,
     status: "upcoming",
     created_by: "u1",

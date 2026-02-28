@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText,
@@ -13,7 +14,6 @@ import {
   EyeOff,
 } from "lucide-react";
 import { toast } from "sonner";
-import { BlogEditor } from "@/components/admin";
 import {
   createBlogPost,
   updateBlogPost,
@@ -22,6 +22,18 @@ import {
 } from "@/lib/actions/blog";
 import type { BlogPost } from "@/types";
 import type { BlogEditorSubmitData } from "@/components/admin/BlogEditor";
+
+const BlogEditor = dynamic(
+  () => import("@/components/admin/BlogEditor").then((m) => m.BlogEditor),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center py-20">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-yey-turquoise border-t-transparent" />
+      </div>
+    ),
+  }
+);
 
 type ViewMode = "list" | "editor";
 
@@ -143,6 +155,7 @@ export function AdminBlogContent({ initialPosts }: Props) {
         excerpt: data.excerpt,
         content: data.content,
         category,
+        cover_image: data.cover_image,
         published: data.published,
       });
 
@@ -163,6 +176,7 @@ export function AdminBlogContent({ initialPosts }: Props) {
         excerpt: data.excerpt,
         content: data.content,
         category,
+        cover_image: data.cover_image,
         published: data.published,
       });
 

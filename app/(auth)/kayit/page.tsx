@@ -9,6 +9,7 @@ import { z } from "zod/v4";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
+import { registerAction } from "@/lib/actions/auth";
 import { Mail, Lock, User, Eye, EyeOff, UserPlus, Chrome } from "lucide-react";
 
 const registerSchemaBase = z.object({
@@ -34,7 +35,7 @@ type RegisterFormData = z.infer<typeof registerSchemaBase>;
 export default function KayitPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const { signUp, signInWithGoogle, isLoading } = useAuth();
+  const { signInWithGoogle, isLoading } = useAuth();
   const router = useRouter();
 
   const {
@@ -53,9 +54,9 @@ export default function KayitPage() {
   });
 
   const onSubmit = async (data: RegisterFormData) => {
-    const { error } = await signUp(data.email, data.password, data.fullName);
-    if (error) {
-      toast.error("Kayıt başarısız", { description: error.message });
+    const result = await registerAction(data.email, data.password, data.fullName);
+    if (!result.success) {
+      toast.error("Kayıt başarısız", { description: result.error });
     } else {
       toast.success("Kayıt başarılı!", {
         description: "E-posta adresinize doğrulama linki gönderildi.",

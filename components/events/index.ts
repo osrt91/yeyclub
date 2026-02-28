@@ -1,4 +1,5 @@
 export { EventCard } from "./EventCard"
 export { EventFilter } from "./EventFilter"
+export { EventMap } from "./EventMap"
 export { RsvpButton } from "./RsvpButton"
 export { EventsPageContent } from "./EventsPageContent"

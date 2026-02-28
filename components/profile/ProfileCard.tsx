@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Shield, User } from "lucide-react"
 import type { Profile } from "@/types"
@@ -32,9 +33,11 @@ export function ProfileCard({ profile, email }: ProfileCardProps) {
   return (
     <div className="yey-card flex flex-col items-center gap-6 p-8 sm:flex-row sm:items-start">
       {profile.avatar_url ? (
-        <img
+        <Image
           src={profile.avatar_url}
           alt={profile.full_name}
+          width={96}
+          height={96}
           className="h-24 w-24 shrink-0 rounded-full object-cover ring-4 ring-yey-yellow/30"
         />
       ) : (

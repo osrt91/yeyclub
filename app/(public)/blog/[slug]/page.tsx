@@ -6,7 +6,9 @@ import { tr } from "date-fns/locale/tr";
 import { ChevronRight, Clock, Eye } from "lucide-react";
 import { getPostBySlug, getRelatedPosts } from "@/lib/queries/blog";
 import { getPostGradient, getCategoryStyle } from "@/lib/data/blog-posts";
-import { ShareButtons, AuthorCard, BlogCard } from "@/components/blog";
+import { ShareButtons } from "@/components/blog/ShareButtons";
+import { AuthorCard } from "@/components/blog/AuthorCard";
+import { BlogCard } from "@/components/blog/BlogCard";
 
 type Props = {
   params: Promise<{ slug: string }>;

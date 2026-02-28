@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bell, CheckCheck, Inbox } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NotificationItem } from "@/components/notifications";
+import { NotificationItem } from "@/components/notifications/NotificationItem";
 import { MOCK_NOTIFICATIONS } from "@/lib/data/mock-data";
 import {
   markNotificationAsRead,

@@ -130,3 +130,17 @@ body {
 .prose strong {
   @apply font-bold text-foreground;
 }
+.prose pre {
+  @apply my-4 rounded-lg bg-foreground/5 p-4 font-mono text-sm;
+}
+.prose code {
+  @apply rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-sm;
+}
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}

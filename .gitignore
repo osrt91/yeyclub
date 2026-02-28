@@ -1,11 +1,13 @@
-﻿node_modules
+node_modules
 .next/
 out/
 build/
 .DS_Store
 desktop.ini
 *.pem
-.env*
+.env
+.env.local
+.env.*.local
 .vercel
 *.tsbuildinfo
 next-env.d.ts

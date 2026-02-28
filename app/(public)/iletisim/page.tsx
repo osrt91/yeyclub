@@ -7,7 +7,7 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
-import { ContactForm } from "@/components/contact";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "İletişim | YeyClub",

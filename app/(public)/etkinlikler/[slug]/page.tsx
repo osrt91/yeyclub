@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   Calendar,
   Clock,
@@ -12,7 +14,7 @@ import { format } from "date-fns";
 import { tr } from "date-fns/locale/tr";
 import { cn } from "@/lib/utils";
 import { EVENT_CATEGORIES } from "@/lib/constants";
-import { RsvpButton } from "@/components/events";
+import { RsvpButton } from "@/components/events/RsvpButton";
 import {
   getEventBySlug,
   getRelatedEvents,
@@ -20,6 +22,12 @@ import {
 } from "@/lib/queries/events";
 import type { Event } from "@/types";
 import type { Metadata } from "next";
+
+const EventMap = dynamic(
+  () =>
+    import("@/components/events/EventMap").then((mod) => mod.EventMap),
+  { ssr: false }
+);
 
 const CATEGORY_COLORS: Record<Event["category"], string> = {
   corba: "bg-yey-red text-white",
@@ -83,10 +91,13 @@ export default async function EtkinlikDetayPage({ params }: Props) {
     <div className="min-h-screen">
       <div className="relative h-64 overflow-hidden sm:h-80 lg:h-96">
         {event.cover_image ? (
-          <img
+          <Image
             src={event.cover_image}
             alt={event.title}
-            className="h-full w-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
         ) : (
           <div
@@ -190,11 +201,15 @@ export default async function EtkinlikDetayPage({ params }: Props) {
                     )}
                   </div>
                 </div>
-                <div className="mt-4 flex h-48 items-center justify-center rounded-lg border border-dashed border-foreground/20 bg-foreground/5">
-                  <p className="text-sm text-foreground/40">
-                    Harita yakında eklenecek
-                  </p>
-                </div>
+                {event.location_lat && event.location_lng && (
+                  <div className="mt-4 h-64 overflow-hidden rounded-lg sm:h-80">
+                    <EventMap
+                      lat={event.location_lat}
+                      lng={event.location_lng}
+                      locationName={event.location_name}
+                    />
+                  </div>
+                )}
               </div>
             )}
 

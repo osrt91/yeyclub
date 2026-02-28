@@ -59,7 +59,7 @@ export async function requireOwnership(
     throw new ActionError("Kayıt bulunamadı.", "NOT_FOUND", 404);
   }
 
-  const ownerId = (data as Record<string, unknown>)[ownerColumn];
+  const ownerId = (data as unknown as Record<string, unknown>)[ownerColumn];
   if (ownerId !== userId) {
     logger.warn("Ownership check failed", {
       table,

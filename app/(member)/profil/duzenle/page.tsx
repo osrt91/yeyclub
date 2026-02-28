@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -112,9 +113,11 @@ export default function ProfilDuzenlePage() {
           <div className="yey-card flex flex-col items-center gap-6 p-8">
             <div className="group relative">
               {displayProfile.avatar_url ? (
-                <img
+                <Image
                   src={displayProfile.avatar_url}
                   alt={displayProfile.full_name}
+                  width={112}
+                  height={112}
                   className="h-28 w-28 rounded-full object-cover ring-4 ring-yey-yellow/30"
                 />
               ) : (

@@ -71,34 +71,45 @@ Bu dosya projenin tamamlanan kısımlarını ve kalan görevleri listeler. Günc
 - [ ] Push bildirim (Expo Notifications, FCM + APNs)
 - [ ] EAS Build + Google Play / App Store yayını
 
-### Faz 5: Optimizasyon & Büyüme
-- [ ] Core Web Vitals optimizasyonu (Lighthouse 90+)
-- [ ] Görsel optimizasyonu (Next/Image, lazy loading)
-- [ ] Code splitting / bundle analizi
-- [ ] Google Analytics 4 + Vercel Analytics entegrasyonu
-- [ ] N8N veya benzeri otomasyon (WhatsApp + e-posta zincirleri)
-- [ ] Supabase RLS denetimi, OWASP kontrolleri
-- [ ] SSL / güvenlik başlıkları (vercel.json'da kısmen mevcut)
+### Vercel Deployment ✅
+- [x] Vercel CLI ile proje oluşturma ve bağlama (yeyclub-team/yeyclub)
+- [x] Environment variables tanımlama (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY)
+- [x] Production deploy (https://yeyclub.vercel.app)
+- [x] Build başarılı: 24 rota (8 statik, 16 dinamik), Frankfurt region, güvenlik başlıkları aktif
 
-### Supabase Deployment
-- [ ] Supabase projesi oluşturma (Dashboard)
-- [ ] .env.local doldurma (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY)
-- [ ] schema.sql'i Supabase SQL Editor'da çalıştırma
-- [ ] Auth trigger test edilmeli (şemada tanımlı)
+### Faz 5: Optimizasyon & Büyüme
+- [x] Vercel Analytics + Speed Insights entegrasyonu (@vercel/analytics, @vercel/speed-insights)
+- [x] Core Web Vitals optimizasyonu (content-visibility, lazy loading, image formats)
+- [x] Görsel optimizasyonu (7 raw img → Next/Image, avif/webp, responsive sizes, priority LCP)
+- [x] Lightbox lazy loading (next/dynamic, ssr: false)
+- [x] Güvenlik başlıkları (HSTS, CSP, Referrer-Policy, Permissions-Policy)
+- [x] Admin rol doğrulaması (middleware'de profiles tablosu sorgusu)
+- [x] CSRF koruması (Origin/Host kontrolü)
+- [x] PWA ikonları (icon-192.png, icon-512.png, favicon.ico, icon.svg)
+- [x] Code splitting / bundle analizi (barrel import fix, dynamic imports, @next/bundle-analyzer)
+- [ ] N8N veya benzeri otomasyon (WhatsApp + e-posta zincirleri)
+- [x] Supabase RLS denetimi (2 kritik, 10 yüksek fix: privilege escalation, open insert, ownership binding)
+- [ ] N8N veya benzeri otomasyon (WhatsApp + e-posta zincirleri) — API key gerekli
+
+### Supabase Deployment ✅
+- [x] Supabase projesi oluşturma (Dashboard)
+- [x] .env.local doldurma (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY)
+- [x] schema.sql'i veritabanında çalıştırma (6 tablo, 21 RLS politikası, 4 trigger, indexler)
+- [x] Auth trigger test edildi (on_auth_user_created aktif)
 
 ### Entegrasyonlar
-- [ ] WhatsApp Business API / Twilio (etkinlik duyurusu, RSVP bildirimi)
-- [ ] Resend veya benzeri e-posta (davetiye, doğrulama)
-- [ ] Google Maps API veya Leaflet (etkinlik detayda harita)
-- [ ] Instagram / YouTube embed (Hakkımızda veya ayrı bölüm)
+- [ ] WhatsApp Business API / Twilio (etkinlik duyurusu, RSVP bildirimi) — API key gerekli
+- [ ] Resend veya benzeri e-posta (davetiye, doğrulama) — API key gerekli
+- [x] Leaflet harita (etkinlik detay, OpenStreetMap, react-leaflet, dynamic import)
+- [x] Instagram / YouTube embed (SocialEmbed komponenti, Hakkımızda sayfası)
 
 ### İyileştirmeler (Opsiyonel)
-- [ ] public/icon-192.png ve icon-512.png (PWA ikonları)
-- [ ] Gerçek kapak görselleri (etkinlik/blog) veya placeholder'lar
-- [ ] Etkinlik CRUD'da Supabase Storage ile kapak yükleme
-- [ ] Blog içerik: MDX veya zengin editör (şu an HTML textarea)
+- [x] public/icon-192.png ve icon-512.png (PWA ikonları)
+- [x] Placeholder kapak görselleri (5 SVG: corba, iftar, eglence, default, blog)
+- [x] Etkinlik CRUD'da Supabase Storage ile kapak yükleme (ImageUpload, event-covers/blog-covers bucket)
+- [x] Blog içerik: Tiptap zengin editör (bold, italic, h2/h3, listeler, link, image, blockquote, code)
 - [x] Rol tabanlı erişim: /admin ve /profil rotalarında auth kontrolü
-- [ ] Rate limiting / CAPTCHA (giriş, kayıt, iletişim formu)
+- [x] Rate limiting (login: 5/15dk, kayıt: 3/saat, iletişim: 3/saat) + Cloudflare Turnstile CAPTCHA
 - [ ] Çoklu dil (i18n) – planda sadece Türkçe
 
 ---

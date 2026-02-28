@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="50%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="450" r="160" fill="#10b981" opacity="0.08"/>
+  <circle cx="1020" cy="180" r="200" fill="#14b8a6" opacity="0.06"/>
+  <circle cx="600" cy="240" r="70" fill="#fbbf24" opacity="0.15"/>
+  <circle cx="600" cy="240" r="50" fill="#fbbf24" opacity="0.2"/>
+  <path d="M585 210 L600 190 L615 210" stroke="#fbbf24" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M565 230 L545 220" stroke="#fbbf24" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M635 230 L655 220" stroke="#fbbf24" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M570 260 L550 270" stroke="#fbbf24" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M630 260 L650 270" stroke="#fbbf24" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="600" cy="240" r="25" fill="none" stroke="#fbbf24" stroke-width="4" opacity="0.8"/>
+  <circle cx="600" cy="240" r="8" fill="#fbbf24" opacity="0.9"/>
+  <path d="M460 340 Q460 290 480 310 Q480 280 500 300 Q500 270 520 295 L520 370 L460 370Z" fill="#ef4444" opacity="0.7"/>
+  <path d="M680 340 Q680 290 700 310 Q700 280 720 300 Q720 270 740 295 L740 370 L680 370Z" fill="#3b82f6" opacity="0.7"/>
+  <path d="M560 360 Q560 320 575 335 Q575 310 590 325 Q590 300 605 320 L605 380 L560 380Z" fill="#fbbf24" opacity="0.7"/>
+  <rect x="455 " y="370" width="70" height="6" rx="3" fill="#ef4444" opacity="0.4"/>
+  <rect x="675" y="370" width="70" height="6" rx="3" fill="#3b82f6" opacity="0.4"/>
+  <rect x="555" y="380" width="55" height="6" rx="3" fill="#fbbf24" opacity="0.4"/>
+  <text x="600" y="480" text-anchor="middle" font-family="system-ui,sans-serif" font-size="48" font-weight="700" fill="#fff">Elence &amp; Kutlama</text>
+  <text x="600" y="530" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#a7f3d0" opacity="0.8">Birlikte elenmek için bir araya geliyoruz</text>
+</svg>

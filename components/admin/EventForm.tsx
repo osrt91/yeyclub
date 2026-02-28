@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod/v4";
 import type { Event } from "@/types";
 import { cn } from "@/lib/utils";
+import { ImageUpload } from "@/components/common/ImageUpload";
 
 const eventSchema = z.object({
   title: z.string().min(3, "Başlık en az 3 karakter olmalıdır"),
@@ -94,6 +95,7 @@ export function EventForm({ initialData, onSubmit, isLoading }: EventFormProps) 
   });
 
   const title = watch("title");
+  const coverImage = watch("cover_image");
 
   function handleTitleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
@@ -235,23 +237,13 @@ export function EventForm({ initialData, onSubmit, isLoading }: EventFormProps) 
           )}
         </div>
 
-        <div>
-          <label htmlFor="cover_image" className={labelClass}>
-            Kapak Görseli
-          </label>
-          <input
-            id="cover_image"
-            type="file"
-            accept="image/*"
-            disabled
-            className={cn(
-              inputClass,
-              "cursor-not-allowed opacity-60 file:mr-3 file:rounded-md file:border-0 file:bg-yey-turquoise/10 file:px-3 file:py-1 file:text-sm file:text-yey-turquoise"
-            )}
+        <div className="md:col-span-2">
+          <label className={labelClass}>Kapak Görseli</label>
+          <ImageUpload
+            bucket="event-covers"
+            currentImageUrl={coverImage ?? null}
+            onUpload={(url) => setValue("cover_image", url)}
           />
-          <p className="mt-1 text-xs text-foreground/50">
-            Görsel yükleme yakında aktif olacak
-          </p>
         </div>
       </div>
 

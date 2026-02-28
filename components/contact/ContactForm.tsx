@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod/v4";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send, Loader2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { submitContactForm } from "@/lib/actions/contact";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Ad Soyad gerekli"),
@@ -25,9 +27,13 @@ const subjects = [
   { value: "diger", label: "Diğer" },
 ];
 
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
 
   const {
     register,
@@ -39,14 +45,28 @@ export function ContactForm() {
     defaultValues: { name: "", email: "", subject: "", message: "" },
   });
 
-  async function onSubmit(_data: ContactFormData) {
+  async function onSubmit(data: ContactFormData) {
+    if (turnstileSiteKey && !turnstileToken) {
+      toast.error("Lütfen CAPTCHA doğrulamasını tamamlayın.");
+      return;
+    }
+
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1500));
+    const result = await submitContactForm(data, turnstileToken ?? "");
     setIsSubmitting(false);
-    setIsSuccess(true);
-    toast.success("Mesajınız başarıyla gönderildi!");
-    reset();
-    setTimeout(() => setIsSuccess(false), 3000);
+
+    if (result.success) {
+      setIsSuccess(true);
+      toast.success("Mesajınız başarıyla gönderildi!");
+      reset();
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
+      setTimeout(() => setIsSuccess(false), 3000);
+    } else {
+      toast.error("Mesaj gönderilemedi", { description: result.error });
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
+    }
   }
 
   const inputClass =
@@ -147,9 +167,21 @@ export function ContactForm() {
             )}
           </div>
 
+          {turnstileSiteKey && (
+            <div className="flex justify-center">
+              <Turnstile
+                ref={turnstileRef}
+                siteKey={turnstileSiteKey}
+                onSuccess={setTurnstileToken}
+                onExpire={() => setTurnstileToken(null)}
+                options={{ theme: "auto", size: "flexible" }}
+              />
+            </div>
+          )}
+
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || (!!turnstileSiteKey && !turnstileToken)}
             className="yey-btn-primary w-full disabled:opacity-60"
           >
             {isSubmitting ? (

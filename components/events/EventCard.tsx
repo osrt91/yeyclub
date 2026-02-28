@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Calendar, MapPin, Users } from "lucide-react"
 import { format } from "date-fns"
 import { tr } from "date-fns/locale/tr"
@@ -54,10 +55,12 @@ export function EventCard({ event, rsvpCount = 0 }: EventCardProps) {
       >
         <div className="relative h-48 overflow-hidden">
           {event.cover_image ? (
-            <img
+            <Image
               src={event.cover_image}
               alt={event.title}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
           ) : (
             <div

@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod/v4";
 import type { BlogPost } from "@/types";
 import { cn } from "@/lib/utils";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
+import { ImageUpload } from "@/components/common/ImageUpload";
 
 const BLOG_CATEGORIES = [
   { value: "topluluk", label: "Topluluk" },
@@ -28,14 +29,13 @@ const blogSchema = z.object({
     message: "Lütfen bir kategori seçin",
   }),
   content: z.string().min(20, "İçerik en az 20 karakter olmalıdır"),
+  cover_image: z.string().nullable(),
   published: z.boolean(),
 });
 
 type BlogFormData = z.infer<typeof blogSchema>;
 
-export type BlogEditorSubmitData = BlogFormData & {
-  coverImageFile?: File | null;
-};
+export type BlogEditorSubmitData = BlogFormData;
 
 type BlogEditorProps = {
   initialData?: BlogPost & { category?: string };
@@ -74,13 +74,6 @@ export function BlogEditor({
   onCancel,
   isLoading,
 }: BlogEditorProps) {
-  const [coverImageFile, setCoverImageFile] = useState<File | null>(null);
-  const [coverPreview, setCoverPreview] = useState<string | null>(
-    initialData?.cover_image ?? null
-  );
-
-  const [isDragging, setIsDragging] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -95,12 +88,14 @@ export function BlogEditor({
       excerpt: initialData?.excerpt ?? "",
       category: ((initialData as { category?: string })?.category ?? "topluluk") as "topluluk" | "etkinlik" | "gonulluluk" | "duyuru",
       content: initialData?.content ?? "",
+      cover_image: initialData?.cover_image ?? null,
       published: initialData?.published ?? false,
     },
   });
 
   const title = watch("title");
   const published = watch("published");
+  const coverImage = watch("cover_image");
 
   const handleTitleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,45 +108,8 @@ export function BlogEditor({
     [initialData, setValue]
   );
 
-  const handleFileSelect = useCallback((file: File | null) => {
-    setCoverPreview((prev) => {
-      if (prev && prev.startsWith("blob:")) URL.revokeObjectURL(prev);
-      return null;
-    });
-    if (!file) {
-      setCoverImageFile(null);
-      return;
-    }
-    if (!file.type.startsWith("image/")) return;
-    setCoverImageFile(file);
-    setCoverPreview(URL.createObjectURL(file));
-  }, []);
-
-  const handleDrop = useCallback(
-    (e: React.DragEvent) => {
-      e.preventDefault();
-      setIsDragging(false);
-      const file = e.dataTransfer.files[0];
-      if (file) handleFileSelect(file);
-    },
-    [handleFileSelect]
-  );
-
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
-  }, []);
-
-  const handleDragLeave = useCallback(() => {
-    setIsDragging(false);
-  }, []);
-
-  const onFormSubmit = (data: BlogFormData) => {
-    onSubmit({ ...data, coverImageFile });
-  };
-
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-10">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
       <div className="space-y-8">
         <div>
           <label htmlFor="title" className={labelClass}>
@@ -221,37 +179,11 @@ export function BlogEditor({
 
         <div>
           <label className={labelClass}>Kapak Görseli</label>
-          <div
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            className={cn(
-              "relative flex min-h-[160px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors",
-              isDragging
-                ? "border-yey-turquoise bg-yey-turquoise/5"
-                : "border-foreground/20 hover:border-foreground/40"
-            )}
-          >
-            <input
-              type="file"
-              accept="image/*"
-              className="absolute inset-0 cursor-pointer opacity-0"
-              onChange={(e) => handleFileSelect(e.target.files?.[0] ?? null)}
-            />
-            {coverPreview ? (
-              <img
-                src={coverPreview}
-                alt="Kapak önizleme"
-                className="max-h-40 rounded-lg object-cover"
-              />
-            ) : (
-              <div className="flex flex-col items-center gap-2 text-foreground/50">
-                <span className="text-sm">
-                  Görseli sürükleyip bırakın veya tıklayarak seçin
-                </span>
-              </div>
-            )}
-          </div>
+          <ImageUpload
+            bucket="blog-covers"
+            currentImageUrl={coverImage}
+            onUpload={(url) => setValue("cover_image", url)}
+          />
         </div>
 
         <div>

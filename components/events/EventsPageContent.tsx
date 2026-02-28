@@ -3,7 +3,8 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { CalendarOff } from "lucide-react";
-import { EventCard, EventFilter } from "@/components/events";
+import { EventCard } from "@/components/events/EventCard";
+import { EventFilter } from "@/components/events/EventFilter";
 import type { Event } from "@/types";
 
 const containerVariants = {

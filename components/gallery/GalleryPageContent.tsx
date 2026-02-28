@@ -1,10 +1,17 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ImageOff } from "lucide-react";
-import { GalleryGrid, Lightbox, GalleryFilter } from "@/components/gallery";
+import { GalleryGrid } from "@/components/gallery/GalleryGrid";
+import { GalleryFilter } from "@/components/gallery/GalleryFilter";
 import type { GalleryItem } from "@/types";
+
+const Lightbox = dynamic(
+  () => import("@/components/gallery/Lightbox").then((m) => m.Lightbox),
+  { ssr: false }
+);
 
 type GalleryEvent = { id: string; title: string };
 

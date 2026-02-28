@@ -1,10 +1,23 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { Calendar } from "lucide-react";
 import { isSameDay } from "date-fns";
-import { CalendarView, DayEventsList } from "@/components/calendar";
+import { CalendarView } from "@/components/calendar/CalendarView";
 import type { Event } from "@/types";
+
+const DayEventsList = dynamic(
+  () => import("@/components/calendar/DayEventsList").then((m) => m.DayEventsList),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="yey-card flex items-center justify-center py-16">
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-yey-turquoise border-t-transparent" />
+      </div>
+    ),
+  }
+);
 
 const CATEGORY_LEGEND = [
   { color: "bg-yey-red", label: "Çorba" },

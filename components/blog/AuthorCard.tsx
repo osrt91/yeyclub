@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FileText } from "lucide-react";
 
 type AuthorCardProps = {
@@ -21,9 +22,11 @@ export function AuthorCard({ name, bio, avatarUrl }: AuthorCardProps) {
     <div className="rounded-xl border border-foreground/10 bg-background/80 p-6 backdrop-blur-sm">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
         {avatarUrl ? (
-          <img
+          <Image
             src={avatarUrl}
             alt={name}
+            width={64}
+            height={64}
             className="h-16 w-16 shrink-0 rounded-full object-cover"
           />
         ) : (

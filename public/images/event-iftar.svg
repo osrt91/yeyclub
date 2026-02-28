@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.5">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="150" cy="100" r="4" fill="#fff" opacity="0.4"/>
+  <circle cx="350" cy="60" r="3" fill="#fff" opacity="0.3"/>
+  <circle cx="550" cy="90" r="3" fill="#fff" opacity="0.35"/>
+  <circle cx="800" cy="50" r="4" fill="#fff" opacity="0.3"/>
+  <circle cx="1000" cy="80" r="3" fill="#fff" opacity="0.4"/>
+  <circle cx="1100" cy="120" r="3" fill="#fff" opacity="0.25"/>
+  <circle cx="250" cy="150" r="2" fill="#fff" opacity="0.3"/>
+  <circle cx="950" cy="140" r="2" fill="#fff" opacity="0.35"/>
+  <path d="M600 160 A80 80 0 0 1 680 240 A80 80 0 0 1 600 320 A65 65 0 0 0 600 160Z" fill="#fbbf24" opacity="0.9"/>
+  <circle cx="620" cy="220" r="30" fill="#1e1b4b" opacity="0.6"/>
+  <path d="M530 370 L540 420 L520 420Z" fill="#f59e0b" opacity="0.8"/>
+  <path d="M530 370 Q530 340 545 350 Q530 330 540 320 Q530 310 540 300" stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="525" y="420" width="30" height="8" rx="3" fill="#d97706" opacity="0.6"/>
+  <path d="M670 370 L680 420 L660 420Z" fill="#f59e0b" opacity="0.8"/>
+  <path d="M670 370 Q670 340 685 350 Q670 330 680 320 Q670 310 680 300" stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="665" y="420" width="30" height="8" rx="3" fill="#d97706" opacity="0.6"/>
+  <text x="600" y="510" text-anchor="middle" font-family="system-ui,sans-serif" font-size="48" font-weight="700" fill="#fff">0ftar Bulu_mas1</text>
+  <text x="600" y="560" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#a7f3d0" opacity="0.8">Birlikte payla_man1n güzellii</text>
+</svg>
