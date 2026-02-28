@@ -1,27 +1,28 @@
 # YeyClub — Kalan İşler Özeti
 
-Kısa özet. Detaylı liste için **[KALAN-ISLER.md](KALAN-ISLER.md)** dosyasına bakın.
+Detaylı liste: **[KALAN-ISLER.md](KALAN-ISLER.md)**
 
 ---
+
+## Canlı
+
+- **Web:** https://yeyclub.vercel.app
+- **GitHub:** https://github.com/osrt91/yeyclub
+- **Supabase:** https://supabase.com/dashboard/project/rsmyynqrmjgfvalcfdso
 
 ## Durum
 
-- **Canlı:** https://yeyclub.vercel.app
-- **Tamamlanan:** Faz 0–3.5 + Supabase Deployment + Vercel Deployment
-- **Kalan:** Faz 4 (mobil uygulama), Faz 5 (optimizasyon, analytics, RLS denetimi)
+- **Tamamlanan:** Faz 0–3.5 + Supabase Deploy + Vercel Deploy + Faz 5 (tamamı)
+- **Kalan:** Sadece API key gerektiren entegrasyonlar + Faz 4 (mobil)
 
-## Tamamlanan Deploy İşleri ✅
+## Kalan İşler (API Key Gerekli)
 
-1. ~~Supabase schema.sql çalıştır~~ ✅ (6 tablo, 21 RLS politikası, 4 trigger)
-2. ~~.env.local doldur~~ ✅ (URL, anon key, service role key)
-3. ~~Vercel deploy~~ ✅ (yeyclub.vercel.app, Frankfurt region)
-
-## Sonraki Adımlar
-
-1. Google OAuth: Supabase Dashboard > Auth > Providers > Google etkinleştir
-2. Custom domain: Vercel Dashboard > Domains (opsiyonel)
-3. İsteğe bağlı: Mobil (Expo), Core Web Vitals, GA4
+1. **Resend e-posta** — API key: https://resend.com → davetiye, doğrulama e-postaları
+2. **Cloudflare Turnstile** — Site key + secret: https://dash.cloudflare.com → CAPTCHA (altyapı hazır)
+3. **WhatsApp / N8N** — WhatsApp Business API veya N8N otomasyon
+4. **Çoklu dil (i18n)** — Şu an sadece Türkçe
+5. **Expo mobil uygulama** — React Native + Expo SDK (Faz 4)
 
 ---
 
-*Detay: [KALAN-ISLER.md](KALAN-ISLER.md)*
+*Son güncelleme: 28 Şubat 2026*
