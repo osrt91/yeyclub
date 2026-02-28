@@ -1,0 +1,14 @@
+﻿node_modules
+.next/
+out/
+build/
+.DS_Store
+desktop.ini
+*.pem
+.env*
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+.cursor/
+.vscode/
+*.code-workspace

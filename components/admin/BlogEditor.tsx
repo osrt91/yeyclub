@@ -1,0 +1,330 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod/v4";
+import type { BlogPost } from "@/types";
+import { cn } from "@/lib/utils";
+import { useCallback, useState } from "react";
+
+const BLOG_CATEGORIES = [
+  { value: "topluluk", label: "Topluluk" },
+  { value: "etkinlik", label: "Etkinlik" },
+  { value: "gonulluluk", label: "Gönüllülük" },
+  { value: "duyuru", label: "Duyuru" },
+] as const;
+
+const blogSchema = z.object({
+  title: z.string().min(3, "Başlık en az 3 karakter olmalıdır"),
+  slug: z
+    .string()
+    .min(3, "Slug en az 3 karakter olmalıdır")
+    .regex(
+      /^[a-z0-9-]+$/,
+      "Slug sadece küçük harf, rakam ve tire içerebilir"
+    ),
+  excerpt: z.string().min(10, "Özet en az 10 karakter olmalıdır"),
+  category: z.enum(["topluluk", "etkinlik", "gonulluluk", "duyuru"], {
+    message: "Lütfen bir kategori seçin",
+  }),
+  content: z.string().min(20, "İçerik en az 20 karakter olmalıdır"),
+  published: z.boolean(),
+});
+
+type BlogFormData = z.infer<typeof blogSchema>;
+
+export type BlogEditorSubmitData = BlogFormData & {
+  coverImageFile?: File | null;
+};
+
+type BlogEditorProps = {
+  initialData?: BlogPost & { category?: string };
+  onSubmit: (data: BlogEditorSubmitData) => void;
+  onCancel?: () => void;
+  isLoading?: boolean;
+};
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/ğ/g, "g")
+    .replace(/ü/g, "u")
+    .replace(/ş/g, "s")
+    .replace(/ı/g, "i")
+    .replace(/ö/g, "o")
+    .replace(/ç/g, "c")
+    .replace(/İ/g, "i")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .trim();
+}
+
+const inputClass =
+  "w-full rounded-lg border border-foreground/20 bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/40 transition-colors focus:border-yey-turquoise focus:outline-none focus:ring-1 focus:ring-yey-turquoise";
+
+const labelClass = "mb-1.5 block text-sm font-medium text-foreground";
+
+const errorClass = "mt-1 text-xs text-yey-red";
+
+export function BlogEditor({
+  initialData,
+  onSubmit,
+  onCancel,
+  isLoading,
+}: BlogEditorProps) {
+  const [coverImageFile, setCoverImageFile] = useState<File | null>(null);
+  const [coverPreview, setCoverPreview] = useState<string | null>(
+    initialData?.cover_image ?? null
+  );
+
+  const [isDragging, setIsDragging] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm<BlogFormData, unknown, BlogFormData>({
+    resolver: zodResolver(blogSchema),
+    defaultValues: {
+      title: initialData?.title ?? "",
+      slug: initialData?.slug ?? "",
+      excerpt: initialData?.excerpt ?? "",
+      category: ((initialData as { category?: string })?.category ?? "topluluk") as "topluluk" | "etkinlik" | "gonulluluk" | "duyuru",
+      content: initialData?.content ?? "",
+      published: initialData?.published ?? false,
+    },
+  });
+
+  const title = watch("title");
+  const published = watch("published");
+
+  const handleTitleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setValue("title", value);
+      if (!initialData) {
+        setValue("slug", slugify(value));
+      }
+    },
+    [initialData, setValue]
+  );
+
+  const handleFileSelect = useCallback((file: File | null) => {
+    setCoverPreview((prev) => {
+      if (prev && prev.startsWith("blob:")) URL.revokeObjectURL(prev);
+      return null;
+    });
+    if (!file) {
+      setCoverImageFile(null);
+      return;
+    }
+    if (!file.type.startsWith("image/")) return;
+    setCoverImageFile(file);
+    setCoverPreview(URL.createObjectURL(file));
+  }, []);
+
+  const handleDrop = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      setIsDragging(false);
+      const file = e.dataTransfer.files[0];
+      if (file) handleFileSelect(file);
+    },
+    [handleFileSelect]
+  );
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  }, []);
+
+  const handleDragLeave = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const onFormSubmit = (data: BlogFormData) => {
+    onSubmit({ ...data, coverImageFile });
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-10">
+      <div className="space-y-8">
+        <div>
+          <label htmlFor="title" className={labelClass}>
+            Başlık
+          </label>
+          <input
+            id="title"
+            type="text"
+            {...register("title")}
+            onChange={handleTitleChange}
+            value={title}
+            placeholder="Blog yazısı başlığı"
+            className={cn(inputClass, "text-xl font-semibold")}
+          />
+          {errors.title && (
+            <p className={errorClass}>{errors.title.message}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="slug" className={labelClass}>
+            Slug
+          </label>
+          <input
+            id="slug"
+            type="text"
+            {...register("slug")}
+            placeholder="blog-yazisi-slug"
+            className={inputClass}
+          />
+          {errors.slug && (
+            <p className={errorClass}>{errors.slug.message}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="excerpt" className={labelClass}>
+            Özet
+          </label>
+          <textarea
+            id="excerpt"
+            {...register("excerpt")}
+            rows={3}
+            placeholder="Yazının kısa özeti (2-3 cümle)"
+            className={cn(inputClass, "resize-none")}
+          />
+          {errors.excerpt && (
+            <p className={errorClass}>{errors.excerpt.message}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="category" className={labelClass}>
+            Kategori
+          </label>
+          <select id="category" {...register("category")} className={inputClass}>
+            {BLOG_CATEGORIES.map(({ value, label }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+          {errors.category && (
+            <p className={errorClass}>{errors.category.message}</p>
+          )}
+        </div>
+
+        <div>
+          <label className={labelClass}>Kapak Görseli</label>
+          <div
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            className={cn(
+              "relative flex min-h-[160px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors",
+              isDragging
+                ? "border-yey-turquoise bg-yey-turquoise/5"
+                : "border-foreground/20 hover:border-foreground/40"
+            )}
+          >
+            <input
+              type="file"
+              accept="image/*"
+              className="absolute inset-0 cursor-pointer opacity-0"
+              onChange={(e) => handleFileSelect(e.target.files?.[0] ?? null)}
+            />
+            {coverPreview ? (
+              <img
+                src={coverPreview}
+                alt="Kapak önizleme"
+                className="max-h-40 rounded-lg object-cover"
+              />
+            ) : (
+              <div className="flex flex-col items-center gap-2 text-foreground/50">
+                <span className="text-sm">
+                  Görseli sürükleyip bırakın veya tıklayarak seçin
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="content" className={labelClass}>
+            İçerik
+          </label>
+          <p className="mb-2 text-xs text-foreground/50">
+            Bold, Italic, Link, H2, H3 için HTML kullanabilirsiniz.
+          </p>
+          <textarea
+            id="content"
+            {...register("content")}
+            rows={14}
+            placeholder="Blog içeriğinizi buraya yazın. HTML desteklenmektedir."
+            className={cn(inputClass, "min-h-[300px] resize-y font-mono text-sm")}
+          />
+          {errors.content && (
+            <p className={errorClass}>{errors.content.message}</p>
+          )}
+        </div>
+
+        <div>
+          <span className={labelClass}>Yayın Durumu</span>
+          <div className="mt-2 flex gap-6">
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                type="radio"
+                {...register("published", {
+                  setValueAs: (v) => v === "true",
+                })}
+                value="false"
+                className="h-4 w-4 border-foreground/30 text-yey-turquoise focus:ring-yey-turquoise"
+              />
+              <span className="text-foreground">Taslak</span>
+            </label>
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                type="radio"
+                {...register("published", {
+                  setValueAs: (v) => v === "true",
+                })}
+                value="true"
+                className="h-4 w-4 border-foreground/30 text-yey-turquoise focus:ring-yey-turquoise"
+              />
+              <span className="text-foreground">Yayınla</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3 border-t border-foreground/10 pt-8">
+        <button
+          type="submit"
+          disabled={isLoading}
+          className={cn(
+            "yey-btn-primary",
+            isLoading && "cursor-not-allowed opacity-60"
+          )}
+        >
+          {isLoading
+            ? "Kaydediliyor..."
+            : published
+              ? "Yayınla"
+              : "Taslak Kaydet"}
+        </button>
+        <button
+          type="button"
+          onClick={onCancel}
+          className="yey-btn-secondary"
+        >
+          İptal
+        </button>
+      </div>
+    </form>
+  );
+}
