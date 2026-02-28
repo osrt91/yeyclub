@@ -275,7 +275,7 @@ function ToggleRow({
         <span
           className={cn(
             "pointer-events-none inline-block h-5 w-5 translate-y-0.5 rounded-full bg-white shadow-md transition-transform duration-200",
-            checked ? "translate-x-5.5" : "translate-x-0.5"
+            checked ? "translate-x-[1.375rem]" : "translate-x-0.5"
           )}
         />
       </button>

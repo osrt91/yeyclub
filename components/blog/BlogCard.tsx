@@ -75,7 +75,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
       <div
         className={cn(
           "relative shrink-0 overflow-hidden",
-          featured ? "md:h-72 md:w-1/2" : "h-44"
+          featured ? "h-52 md:h-72 md:w-1/2" : "h-44"
         )}
       >
         {post.cover_image ? (

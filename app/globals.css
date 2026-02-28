@@ -125,7 +125,7 @@ body {
   @apply border-l-4 border-yey-yellow pl-4 italic text-foreground/70 my-4;
 }
 .prose img {
-  @apply rounded-xl my-6;
+  @apply rounded-xl my-6 max-w-full h-auto;
 }
 .prose strong {
   @apply font-bold text-foreground;
