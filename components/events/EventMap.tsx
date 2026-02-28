@@ -18,7 +18,7 @@ const markerIcon = new L.Icon({
 type EventMapProps = {
   lat: number;
   lng: number;
-  locationName: string;
+  locationName?: string;
 };
 
 export function EventMap({ lat, lng, locationName }: EventMapProps) {
