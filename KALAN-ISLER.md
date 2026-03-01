@@ -63,13 +63,17 @@ Bu dosya projenin tamamlanan kısımlarını ve kalan görevleri listeler. Günc
 
 ## Kalan İşler
 
-### Faz 4: Mobil Uygulama
-- [ ] Expo proje kurulumu (React Native + Expo SDK)
-- [ ] Navigasyon (Expo Router)
-- [ ] Supabase entegrasyonu (mobil client)
-- [ ] Temel ekranlar: Ana sayfa, Etkinlikler, Etkinlik detay, Galeri, Profil
-- [ ] Push bildirim (Expo Notifications, FCM + APNs)
-- [ ] EAS Build + Google Play / App Store yayını
+### Faz 4: Mobil Uygulama ✅
+- [x] Expo SDK 55 proje kurulumu (React Native 0.83 + TypeScript)
+- [x] Navigasyon (Expo Router, Tab + Stack layout)
+- [x] Supabase entegrasyonu (mobil client, AsyncStorage session)
+- [x] Tema sistemi (YeyClub renk paleti, dark/light mode)
+- [x] Auth ekranları (Giriş / Kayıt, Supabase Auth)
+- [x] Temel ekranlar: Ana sayfa (Hero + Kategoriler + Yaklaşan Etkinlikler), Etkinlikler (arama + filtre), Etkinlik detay (RSVP), Galeri (2-kolon grid), Profil (menü + çıkış)
+- [x] Push bildirim (Expo Notifications, Android kanal yapılandırması, etkinlik hatırlatma zamanlayıcı)
+- [x] EAS Build yapılandırması (development, preview, production profilleri)
+- [x] Zustand state management (auth store)
+- [ ] EAS Build + Google Play / App Store yayını (hesap bilgileri gerekli)
 
 ### Vercel Deployment ✅
 - [x] Vercel CLI ile proje oluşturma ve bağlama (yeyclub-team/yeyclub)
